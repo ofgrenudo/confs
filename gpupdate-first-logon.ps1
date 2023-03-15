@@ -1,0 +1,1 @@
+New-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Runonce" -Name "gpupdate" -Value "C:\windows\system32\gpupdate.exe /f" -Type STRING -Froce -ErrorAction SilentlyContinue | Out-Null
