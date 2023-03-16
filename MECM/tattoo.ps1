@@ -1,6 +1,7 @@
 # Name: Tattoo
 # Authors: Joshua Winters-Brown
 # Description: This script tattoos the registry with deployment variables during the operating system deployment.
+# Link: https://github.com/ofgrenudo/confs/blob/main/MECM/tattoo.ps1
 
 # Get Task Sequence Variables
 # Note, this script is looking for a few specific task sequence variables
