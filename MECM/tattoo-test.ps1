@@ -2,9 +2,6 @@
 # Authors: Joshua Winters-Brown
 # Description: This script tattoos the registry with deployment variables during the operating system deployment.
 
-# Get Task Sequence Variables
-$ts_env = New-Object -COMObject Microsoft.SMS.TSEnvironment
-
 # All of our information will live within this Registry Folder :)
 $full_registry_key_name = "HKLM:\SOFTWARE\KVCC"
 
@@ -13,13 +10,13 @@ New-Item -Path $full_registry_key_name -type Directory -Force -ErrorAction Silen
 
 # Get Values to Tattoo
 $install_date = Get-Date -Format Get
-$task_sequence_name = $ts_env.Value("_SMSTSPackageName")
-$task_sequence_id = $ts_env.Value("_SMSTSPackageID")
-$asset_tag = ts_env.Value("OSDAssetTag")
+$task_sequence_name = "Joshuas Tattoo Test"
+$task_sequence_id = "TS0000000"
+$asset_tag = 612435
 $device_name = $env:computername
 
 # Time Stamp Logic
-$osd_start_time = $ts_env.Value("OSDStartTime")
+$osd_start_time = Get-Date -Format Get
 $osd_time_frame = New-TimeSpan -start $osd_start_time -end $install_date
 $osd_time_took = "{0:hh}:{0:mm}:{0:ss}" -f $osd_time_frame
 
