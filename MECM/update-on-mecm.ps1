@@ -24,14 +24,10 @@ $device_resource_id = $device_raw | Select-Object -ExpandProperty MachineID
 
 # Sending Asset Tag Information 
 # Link: https://learn.microsoft.com/en-us/mem/configmgr/develop/adminservice/custom-properties#set-properties-via-api
-$device_parameters = "{ ExtensionData { AssetTag: 12345 }}"
-    
+$device_parameters = "{ 'ExtensionData': { 'AssetTag':'12345'} }"
+
 $route = $site_server + "/Device($device_resource_id)/AdminService.SetExtensionData"
-$update_device_info = Invoke-RestMethod -Method 'POST' -Uri $route -Credential $c -Body "{
-    'ExtensionData': {
-      'AssetTag':'',
-    }
-  }" -ContentType 'application/json'
+$update_device_info = Invoke-RestMethod -Method 'POST' -Uri $route -Credential $c -Body $device_parameters -ContentType 'application/json'
 
 # Check Asset Tag Information
 # Link: https://learn.microsoft.com/en-us/mem/configmgr/develop/adminservice/custom-properties#view-properties
