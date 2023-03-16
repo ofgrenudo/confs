@@ -9,21 +9,16 @@ $full_registry_key_name = "HKLM:\SOFTWARE\KVCC"
 New-Item -Path $full_registry_key_name -type Directory -Force -ErrorAction SilentlyContinue
 
 # Get Values to Tattoo
-$install_date = Get-Date -Format Get
+$install_date = Get-Date
 $task_sequence_name = "Joshuas Tattoo Test"
 $task_sequence_id = "TS0000000"
 $asset_tag = 612435
 $device_name = $env:computername
 
-# Time Stamp Logic
-$osd_start_time = Get-Date -Format Get
-$osd_time_frame = New-TimeSpan -start $osd_start_time -end $install_date
-$osd_time_took = "{0:hh}:{0:mm}:{0:ss}" -f $osd_time_frame
 
 # Write Values to Registry
-New-ItemProperty $full_registry_key_name -Name "Installed Date" -Value $install_date -Type STRING -Froce -ErrorAction SilentlyContinue | Out-Null
-New-ITemProperty $full_registry_key_name -Name "Deployment Time Took" -Value $osd_time_took
-New-ItemProperty $full_registry_key_name -Name "Task Sequence Deployed Name" -Value $task_sequence_name -Type STRING -Froce -ErrorAction SilentlyContinue | Out-Null
-New-ItemProperty $full_registry_key_name -Name "Task Sequence Deployed ID" -Value $task_sequence_id -Type STRING -Froce -ErrorAction SilentlyContinue | Out-Null
-New-ItemProperty $full_registry_key_name -Name "Asset Tag" -Value $asset_tag -Type STRING -Froce -ErrorAction SilentlyContinue | Out-Null
-New-ItemProperty $full_registry_key_name -Name "Device Name" -Value $device_name -Type STRING -Froce -ErrorAction SilentlyContinue | Out-Null
+New-ItemProperty $full_registry_key_name -Name "Installed Date" -Value $install_date -Type STRING -Force -ErrorAction SilentlyContinue | Out-Null
+New-ItemProperty $full_registry_key_name -Name "Task Sequence Deployed Name" -Value $task_sequence_name -Type STRING -Force -ErrorAction SilentlyContinue | Out-Null
+New-ItemProperty $full_registry_key_name -Name "Task Sequence Deployed ID" -Value $task_sequence_id -Type STRING -Force -ErrorAction SilentlyContinue | Out-Null
+New-ItemProperty $full_registry_key_name -Name "Asset Tag" -Value $asset_tag -Type STRING -Force -ErrorAction SilentlyContinue | Out-Null
+New-ItemProperty $full_registry_key_name -Name "Device Name" -Value $device_name -Type STRING -Force -ErrorAction SilentlyContinue | Out-Null
