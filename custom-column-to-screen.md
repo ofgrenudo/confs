@@ -1,0 +1,1 @@
+http://idanve.blogspot.com/2015/03/add-custom-column-to-sccm-console-using.html
