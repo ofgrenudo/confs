@@ -1,16 +1,17 @@
-﻿# Name: delte-profiles.ps1
+﻿# Name: delete-profiles.ps1
 # Authors: Joshua Winters-Brown
 # Description: This script deletes user profiles files as well as the associated registry key.
 # Link: https://github.com/ofgrenudo/confs/blob/main/MECM/delete-profiles.ps1
 
-$DoNotDelete = @("NetworkService", "LocalService", "systemprofile", "cnmlab", "shiftyfox")
+$DoNotDelete = @("NetworkService", "LocalService", "systemprofile", "shiftyfox", "administrator")
+$AllLocalProfiles = Get-WmiObject Win32_UserProfile | Where-Object { $_.LocalPath.split('\')[-1] -notin $DoNotDelete}
+$SelectedProfiles = $AllLocalProfiles | Select PSComputerName, LocalPath, LastUseTime, SID | Out-GridView -PassThru -Title "Please select profiles to delete"
 
-$deleteProfiles = Get-WmiObject Win32_UserProfile | Where-Object { $_.LocalPath.split('\')[-1] -notin $DoNotDelete} | Select PSComputerName, LocalPath, LastUseTime, SID | Out-GridView -PassThru -Title "Select profiles to delete"
-if ($deleteProfiles) {
-    Write-Output "The following profiles will be deleted:"
-    $deleteProfiles | % { $_.LocalPath }
-    Read-Host "Press ENTER to delete, or CTRL+C to exit"
-    Get-WmiObject Win32_UserProfile | ? { ($_.SID -in $deleteProfiles.SID) -and ($_.LocalPath -in $deleteProfiles.LocalPath) } | % { $_.Delete() }
+if ($SelectedProfiles) {
+    Get-WmiObject Win32_UserProfile | ? { ($_.SID -in $SelectedProfiles.SID) -and ($_.LocalPath -in $SelectedProfiles.LocalPath) } | % { 
+        $_.Delete()
+        Write-Host "Deleting $_.LocalPath" 
+    }
 } else {
-    Write-Output "No profiles selected"
+    Write-Output "No profiles selected... Please try again :)"
 }
