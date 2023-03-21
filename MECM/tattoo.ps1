@@ -18,7 +18,6 @@ Add-Type -TypeDefinition $code -Language CSharp
 
 $credentials = Get-Credential kvcc.dom\
 
-
 # Get Task Sequence Variables
 # Note, this script is looking for a few specific task sequence variables
 # 1. _SMSTSPackageName
