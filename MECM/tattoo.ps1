@@ -58,7 +58,7 @@ New-ItemProperty $full_registry_key_name -Name "Device Make" -Value $device_make
 
 # Get all devices and then sort for our device name
 $route =  $site_server + "/Device/" # This URL pulls all devices from contour
-$device_list = Invoke-RestMethod -Method 'GET' -Uri $route -Credential $c # Connect to Contour with a credential entered earlier
+$device_list = Invoke-RestMethod -Method 'GET' -Uri $route -Credential $credentials # Connect to Contour with a credential entered earlier
 $device_raw = $device_list | Select-Object -ExpandProperty Value | Where-Object Name -eq $device_name # Filter through our JSON var and find the object for our device.
 $device_resource_id = $device_raw | Select-Object -ExpandProperty MachineID
 
@@ -72,4 +72,4 @@ Invoke-RestMethod -Method 'POST' -Uri $route -Credential $credentials -Body $dev
 # # Check our device Extension Data was set :) 
 # # Link: https://learn.microsoft.com/en-us/mem/configmgr/develop/adminservice/custom-properties#view-properties
 # $route = $site_server + "/Device($device_resource_id)/AdminService.GetExtensionData"
-# $get_device_info = Invoke-RestMethod -Method 'GET' -Uri $route -Credential $c
+# $get_device_info = Invoke-RestMethod -Method 'GET' -Uri $route -Credential $credentials
