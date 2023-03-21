@@ -1,6 +1,6 @@
-# Name: Tattoo
+# Name: Check Tatto
 # Authors: Joshua Winters-Brown
-# Description: This script tattoos the registry with deployment variables during the operating system deployment.
+# Description: This script checks your MECM server for any Extension data that may have been submitted, and spits it out into the terminal
 # Link: https://github.com/ofgrenudo/confs/blob/main/MECM/check-tattoo.ps1
 
 # If you are using powershell v5 like me, you will need this code block to allow connections to insecure (IE self signed certs)
@@ -29,4 +29,4 @@ $device_resource_id = $device_raw | Select-Object -ExpandProperty MachineID
 # Link: https://learn.microsoft.com/en-us/mem/configmgr/develop/adminservice/custom-properties#view-properties
 $route = $site_server + "/Device($device_resource_id)/AdminService.GetExtensionData"
 $get_device_info = Invoke-RestMethod -Method 'GET' -Uri $route -Credential $credentials
-Write-Host $get_device_info
+$get_device_info | Out-GridView
