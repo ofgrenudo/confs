@@ -67,8 +67,3 @@ $device_parameters = "{ 'ExtensionData': { 'AssetTag':'$asset_tag', 'Model':'$de
 
 $route = $site_server + "/Device($device_resource_id)/AdminService.SetExtensionData"
 Invoke-RestMethod -Method 'POST' -Uri $route -Credential $credentials -Body $device_parameters -ContentType 'application/json'
-
-# # Check our device Extension Data was set :) 
-# # Link: https://learn.microsoft.com/en-us/mem/configmgr/develop/adminservice/custom-properties#view-properties
-# $route = $site_server + "/Device($device_resource_id)/AdminService.GetExtensionData"
-# $get_device_info = Invoke-RestMethod -Method 'GET' -Uri $route -Credential $credentials
