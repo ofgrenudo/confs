@@ -19,3 +19,5 @@ choco install transmission
 choco install visualstudio2022community
 choco install googledrive
 choco install filezilla
+choco install sysinternals
+choco install vlc
