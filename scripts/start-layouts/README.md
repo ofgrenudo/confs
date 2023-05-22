@@ -1,7 +1,4 @@
-# Start Layouts
-
-Windows 11 and Start Menus *suck.* Nothing works the way Microsoft says it should unless you use InTune. So to get around it, we just copy the bin. For now i'm doing both, considering sometime in the future Microsoft might get its stuff together and allow the JSON file to work.
-
+Windows 11 and Start Menus *suck.* Nothing works the way Microsoft says it should unless you use Intune. So to get around it, we just copy the bin. For now I'm doing both, considering sometime in the future Microsoft might get its stuff together and allow the JSON file to work.
 
 
 ## Creating a new Layout
@@ -15,16 +12,16 @@ Alternatively, windows holds an encrypted version of the startup file in the `%L
 
 I've also created a mini program that you can use to quickly do the above commands to quickly reproduce the steps above. I will put the latest version of the source blow, alternatively you can check my Github repository out here https://github.com/ofgrenudo/confs/tree/main/scripts/start-layouts
 
+Install.bat
 
-
-_install.bat_
 ```bash
 cmd /c copy LayoutModification.json C:\Users\Default\appdata\local\Microsoft\Windows\Shell\LayoutModification.json /y 
 cmd /c copy start.bin C:\Users\Default\AppData\Local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\LocalState
 ```
 
 
-_do-it-again.bat_
+do-it-again.bat
+
 ```bash
 @echo off
 powershell.exe Invoke-Command -scriptbloc {"Export-StartLayout -Path LayoutModifications.json"}
