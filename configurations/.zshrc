@@ -16,3 +16,4 @@ zstyle ':omz:update' frequency 13 # Check for Updates Every 13 Days
 # Plugins and Customizations
 plugins=(git)
 export LANG=en_US.UTF-8
+source $ZSH/oh-my-zsh.sh
