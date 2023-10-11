@@ -1,0 +1,18 @@
+syntax on
+
+set encoding=UTF-8
+
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set autoindent
+set smartindent
+set smarttab
+set expandtab
+set nowrap
+set cursorline
+set number
+
+set termguicolors
+colorscheme desert
+set background=dark
