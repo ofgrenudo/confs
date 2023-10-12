@@ -1,0 +1,17 @@
+#!/bin/bash
+# This script will clear your dns cache on your mac. It has been tested on macOS 13.4 Ventura
+# Joshua Winters-Brown
+
+sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder > /dev/null
+
+echo "  _____ "
+echo "  |   D "
+echo "  |   | "
+echo "  |   | "
+echo "  \___|            _ "
+echo "    ||  _______  -( (- "
+echo "    |_'(-------)  '-' "
+echo "       |       / "
+echo " _____,-\__..__|_____ "
+echo " "
+echo " Your DNS has been flushed... "
