@@ -1,3 +1,13 @@
+# Aliases
+alias files='xdg-open .'
+alias ls='ls -F'
+alias ll='ls -lh'
+alias get_album="yt-dlp --no-part -x --yes-playlist --audio-format mp3 -o \"%(title)s.%(ext)s\""
+alias get_albumC="yt-dlp --no-part -x --yes-playlist --audio-format mp3 -o \"%(title)s.%(ext)s\" --cookies-from-browser firefox"
+alias get_song="yt-dlp --no-part -x --audio-format mp3 -o \"%(title)s.%(ext)s\""
+alias vim="nvim"
+
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
