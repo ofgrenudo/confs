@@ -1,23 +1,21 @@
-choco install googlechrome
-choco install firefox
-choco install jre8
-choco install python3
-choco install notepadplusplus.install
-choco install 7zip.install
-choco install zoom
-choco install rustup.install
-choco install steam
-choco install bitwarden
-choco install itunes
-choco install putty
-choco install nmap
-choco install usbpcap
-choco install wireshark
-choco install powertoys
-choco install github-desktop
-choco install transmission
-choco install visualstudio2022community
-choco install googledrive
-choco install filezilla
-choco install sysinternals
-choco install vlc
+choco install googlechrome --version 122.0.6261.95 -y
+choco install jre8 --version 8.0.401 -y
+choco install python --version 3.12.2 -y
+choco install notepadplusplus --version 8.6.4 -y
+choco install 7zip --version 23.1.0 -y
+choco install zoom --version 5.17.7.31859 -y
+choco install rustup.install --version 1.25.1 -y
+choco install steam --version 2.10.91.91221129 -y
+choco install bitwarden --version 2024.2.0 -y
+choco install itunes --version 12.13.1.3 -y
+choco install nmap --version 7.93 -y
+choco install usbpcap --version 1.5.4.0 -y
+choco install wireshark --version 4.2.3 -y
+choco install powertoys --version 0.78.0 -y
+choco install git --version 2.44.0 -y
+choco install deluge --version 2.1.1 -y
+choco install vscodium --version 1.87.0.24060 -y
+choco install googledrive --version 87.0.2 -y
+choco install winscp --version 6.3.1 -y
+choco install sysinternals --version 2024.2.13 -y
+choco install vlc --version 3.0.20 -y
